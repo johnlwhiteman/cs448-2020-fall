@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+while true
+do
+    echo 'Lab 0 Docker container is running now'
+    echo 'Run docker stop lab0'
+    sleep 5
+done
+

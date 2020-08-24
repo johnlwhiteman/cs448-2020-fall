@@ -36,8 +36,8 @@ function installDeps {
     build-essential binutils bzip2 cloc curl eog gedit ghex \
     gnuplot imagemagick make net-tools \
     npm openjdk-14-jdk-headless p7zip-full \
-    python3-pip retext strace tree valgrind \
-    volatility wget
+    python3-pip retext strace sysvbanner tree \
+    valgrind volatility wget
     sudo apt-get autoremove -y
     sudo apt --fix-broken install -y
 }
@@ -58,6 +58,9 @@ function installDocker {
     sudo systemctl stop docker
     sudo systemctl enable docker
     sudo systemctl start docker
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker 
     sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
