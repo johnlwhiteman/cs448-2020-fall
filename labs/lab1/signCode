@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+OS=ubuntu
+rm -f ./sign.* *.pub  *.pem *.sha256
+
+openssl genrsa -aes256 -passout pass:secret -out private.pem 4096
+openssl rsa -in private.pem -passin pass:secret -pubout -out public.pem
+openssl dgst -sha256 -passin pass:secret -sign private.pem -out sign.sha256 vigenere.c 
+#openssl base64 -in sign.sha256 -out sign.txt 
+mv ./private.pem ../../keys/

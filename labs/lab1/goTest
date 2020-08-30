@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+K=("MYKEY" "VHUIOP6590QAZC" "JINX123" "143GIANTKEY598" "SAMEOLD" "5")
+P=("MYPLAINTEXT" "LETSCOUNT12345" "THISISATEST123" "TINY" "SAMEOLDSAMEOLD" "X")
+C=("YMZPYUB3IL5" "6LD0Q3QISRI3T7" "2PVF9K32M5GSUW" "KCG4" "AAYI2WGAAYI2WG" "S")
+EXE_ORG=./vigenere-ORIGINAL
+EXE_NEW=./vigenere
+
+testy() {
+    exe=$1
+    echo "----------------------------------------------------------------------"
+    echo "EXE: $exe"
+    echo "COMMAND LINE BASED"
+    echo "ACTUAL ... EXPECTED" 
+    echo "----------------------------------------------------------------------"
+    for i in 0 1 2 3 4 5
+    do
+        k=${K[$i]}
+        p=${P[$i]}
+        c=${C[$i]}
+        cc=$($exe -e -k "$k" -i "$p")
+        echo $cc ... $c 
+        pp=$($exe -d -k "$k" -i "$c")
+        echo $pp ... $p 
+    done
+
+    echo "----------------------------------------------------------------------"
+    echo "EXE: $exe"
+    echo "FILE BASED"
+    echo "ACTUAL ... EXPECTED" 
+    echo "----------------------------------------------------------------------"
+    rm -f k.txt p.txt c.txt
+    for i in 0 1 2 3 4 5
+    do
+        k=${K[$i]}
+        p=${P[$i]}
+        c=${C[$i]}
+        rm -f k.txt p.txt c.txt
+        echo $k > k.txt
+        echo $p > p.txt
+        $exe -E -k k.txt -i p.txt -o c.txt
+        cc=$(cat c.txt)
+        echo $cc ... $c 
+        rm -f c.txt p.txt
+        echo $c > c.txt
+        $exe -D -k k.txt -i c.txt -o p.txt
+        pp=$(cat p.txt)
+        echo $pp ... $p 
+        rm -f k.txt p.txt c.txt
+    done
+}
+
+testy "$EXE_ORG"
+echo ""
+echo "*******************************************************"
+echo "*******************************************************"
+echo ""
+testy "$EXE_NEW"
+
+

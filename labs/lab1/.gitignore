@@ -1,0 +1,8 @@
+vigenere
+*.256
+*.bin
+*.pem
+*.pub
+*.sha256
+*.sig
+sign.*
