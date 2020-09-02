@@ -27,6 +27,15 @@ function installChrome {
     sudo apt --fix-broken install -y
 }
 
+function installCode {
+    sudo apt install curl gpg software-properties-common apt-transport-https -y
+    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" \
+         | sudo tee /etc/apt/sources.list.d/vscode.list
+    sudo apt update
+    sudo apt install code -y
+}
+
 function installDeps {
     export DEBIAN_FRONTEND=noninteractive
     sudo apt --fix-broken install -y
@@ -34,7 +43,7 @@ function installDeps {
     sudo apt-get install -y debconf-utils
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes r-base \
     build-essential binutils bzip2 cloc curl eog gedit ghex \
-    gnuplot imagemagick make net-tools \
+    gnuplot imagemagick jq make net-tools \
     npm openjdk-14-jdk-headless p7zip-full \
     python3-pip retext strace sysvbanner tree \
     valgrind volatility wget
@@ -157,6 +166,7 @@ installVim
 setupPython
 installDocker
 installChrome
+installCode
 setupOs
 installNodeJs
 installTypora
