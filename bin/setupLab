@@ -157,6 +157,8 @@ function setupOs {
 function setupPython {
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
     sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1 
+    sudo pip install matplotlib
+    sudo pip install jupyter 
 }
 
 sudo ls >/dev/null
