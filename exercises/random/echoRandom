@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo 'echo $RANDOM'
+while :
+do
+    echo $RANDOM
+    sleep 1
+done

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+echo 'cat /dev/random | head -c 8'
+while :
+do
+    cat /dev/random | head -c 8 
+    echo
+    sleep 1
+done
