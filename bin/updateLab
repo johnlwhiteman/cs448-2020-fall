@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sudo apt install net-tools -y
+docker pull tleemcjr/metasploitable2
+docker pull vulnerables/web-dvwa

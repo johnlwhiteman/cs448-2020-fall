@@ -1,0 +1,20 @@
+
+version: "3"
+
+services:
+  http:
+    build:
+      context: .
+      dockerfile: ./http/Dockerfile
+    container_name: http
+    image: http
+    ports:
+      - "8000:80"
+  https:
+    build:
+      context: .
+      dockerfile: ./https/Dockerfile
+    container_name: https
+    image: https
+    ports:
+      - "8001:443"

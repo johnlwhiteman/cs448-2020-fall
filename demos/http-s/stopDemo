@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+docker-compose down
+docker container stop -t 2 http 
+docker container stop -t 2 https 
+docker rmi http
+docker rmi https

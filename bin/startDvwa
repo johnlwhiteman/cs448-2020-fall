@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+docker run --rm -itd -p 80:80 --name dvwa vulnerables/web-dvwa
