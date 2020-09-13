@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+docker-compose down
+docker container stop -t 2 http
+docker container stop -t 2 https
+docker container stop -t 2 nginx 
+docker rm -vf http 
+docker rm -vf https
+docker rm -vf nginx
+docker rmi -f http 
+docker rmi -f https
+docker rmi -f nginx

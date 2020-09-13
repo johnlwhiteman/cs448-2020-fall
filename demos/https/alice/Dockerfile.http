@@ -1,0 +1,14 @@
+FROM node:12-alpine
+ARG NAME=alice
+ARG HOME=/home/$NAME
+ARG APP=$HOME/app
+RUN mkdir -p $APP/node_modules && chown -R node:node $APP 
+RUN apk update \ 
+    && apk upgrade \
+    && apk add bash curl openrc openssl --no-cache
+WORKDIR $APP 
+COPY --chown=node:node ./app/package*.json ./ 
+RUN npm install
+COPY --chown=node:node ./app .
+EXPOSE 5000
+CMD [ "node", "http.js" ]

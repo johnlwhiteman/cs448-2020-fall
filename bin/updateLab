@@ -3,3 +3,11 @@
 sudo apt install net-tools -y
 docker pull tleemcjr/metasploitable2
 docker pull vulnerables/web-dvwa
+sudo systemctl status apache2
+sudo systemctl is-enabled apache2
+sudo systemctl disable apache2
+sudo systemctl stop apache2
+sudo systemctl mask apache2
+sudo apt remove apache2
+npm install helmet --save
+sudo npm install -g helmet

@@ -1,0 +1,65 @@
+version: '3.1'
+
+services:
+
+  http:
+    build:
+      context: ./alice
+      dockerfile: Dockerfile.http
+    container_name: http
+    image: http
+    restart: unless-stopped
+    networks:
+      - app-network
+    ports:
+      - "5000:5000"
+    expose:
+      - 5000/tcp
+    secrets:
+      - secret1
+      - sharedsecret
+
+  https:
+    build:
+      context: ./alice
+      dockerfile: Dockerfile.https
+    container_name: https
+    image: https
+    restart: unless-stopped
+    networks:
+      - app-network
+    ports:
+      - "5001:5001"
+    expose:
+      - 5001/tcp
+    secrets:
+      - secret2
+      - sharedsecret
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - 80/tcp
+      - 443/tcp
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+secrets:
+  secret1:
+    file: ./secrets/secret1.txt
+  secret2:
+    file: ./secrets/secret2.txt
+  sharedsecret:
+    file: ./secrets/sharedsecret.txt

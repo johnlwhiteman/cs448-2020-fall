@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+curl http://localhost:5000
+curl --insecure https://localhost:5001
+curl http://localhost
+docker ps

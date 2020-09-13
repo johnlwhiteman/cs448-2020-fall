@@ -1,0 +1,16 @@
+FROM node:12-alpine
+ARG NAME=alice
+ARG HOME=/home/$NAME
+ARG APP=$HOME/app
+RUN mkdir -p $APP/node_modules && chown -R node:node $APP 
+RUN apk update \ 
+    && apk upgrade \
+    && apk add bash curl openrc openssl --no-cache
+WORKDIR $APP 
+COPY --chown=node:node ./app/package*.json ./ 
+RUN npm install
+COPY --chown=node:node ./app .
+RUN openssl req -x509 -nodes -days 365 -subj "/C=US/ST=OR/O=$NAME, Inc./CN=$NAME.org" -addext "subjectAltName=DNS:$NAME.org" -newkey rsa:4096 -keyout $NAME.key -out $NAME.crt \
+    && openssl x509 -text -in $NAME.crt -noout
+EXPOSE 5001
+CMD [ "node", "https.js" ]
