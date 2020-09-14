@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rm -f *.crt *.csr *.key

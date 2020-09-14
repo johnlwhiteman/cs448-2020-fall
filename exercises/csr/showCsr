@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+openssl req -text -in your.csr -noout

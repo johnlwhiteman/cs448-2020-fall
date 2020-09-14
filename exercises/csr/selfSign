@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+NAME=self-signed
+openssl req -x509 -nodes -days 365 -subj "/C=US/ST=OR/O=$NAME, Inc./CN=$NAME.org" -addext "subjectAltName=DNS:$NAME.org" -newkey rsa:4096 -keyout $NAME.key -out $NAME.crt \
+    && openssl x509 -text -in $NAME.crt -noout
