@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "dnsenum $1"
+dnsenum $1
