@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+sudo apt autoremove -y
 sudo apt install net-tools -y
 docker pull tleemcjr/metasploitable2
 docker pull vulnerables/web-dvwa
@@ -10,5 +11,7 @@ sudo systemctl mask apache2
 sudo apt remove apache2
 npm install helmet --save
 sudo npm install -g helmet
-cd ~/cs448-2020-fall/demos/https
+sudo apt autoremove -y
+cd ~/cs448-2020-fall/exercises/https
 ./startDemo
+
