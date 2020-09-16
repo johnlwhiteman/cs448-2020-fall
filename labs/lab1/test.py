@@ -33,6 +33,7 @@ def read(path):
 def run(args):
     r = Result()
     r.cmd = "./vigenere {0}".format(args)
+    print(r.cmd)
     p = subprocess.Popen(r.cmd,
         stdout = subprocess.PIPE,
         stderr = subprocess.PIPE,
@@ -41,7 +42,7 @@ def run(args):
     r.out = stdout.decode("utf8").strip()
     r.err = stderr.decode("utf8").strip()
     r.ret = p.returncode
-    if r.ret or re.search("Vigenère is a ", r.out): 
+    if r.ret or re.search("Vigenère is a ", r.out):
         print(r.out)
         print(r.err)
         sys.exit(1)
