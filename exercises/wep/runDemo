@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+FILE=wep-crack.pcap
+if [ ! -f "$FILE" ]; then
+    unzip wep-crack.pcap.zip
+fi
+aircrack-ng -z $FILE 
