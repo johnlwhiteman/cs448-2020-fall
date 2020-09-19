@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo tcpreplay -i lo -K --mbps=9500 --loop 1 ./traffic.pcap | tee ./results/tcpreplay.log

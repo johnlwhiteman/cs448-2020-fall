@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+P=$1
+if [ -z "$P" ]; then
+    echo 'Usage: ./getPecap <password>'
+    exit 1
+fi
+rm -fr ./wireshark-tutorial-decrypting-HTTPS-traffic ./keys.log ./traffic.pcap
+git clone https://github.com/pan-unit42/wireshark-tutorial-decrypting-HTTPS-traffic.git
+cd ./wireshark-tutorial-decrypting-HTTPS-traffic
+unzip -P $P Wireshark-tutorial-on-decrypting-HTTPS-SSL-TLS-traffic.zip && mv Wireshark-tutorial-on-decrypting-HTTPS-SSL-TLS-traffic.pcap Wireshark-tutorial-KeysLogFile.txt ../
+cd ../
+rm -fr ./wireshark-tutorial-decrypting-HTTPS-traffic
+mv Wireshark-tutorial-on-decrypting-HTTPS-SSL-TLS-traffic.pcap traffic.pcap
+mv Wireshark-tutorial-KeysLogFile.txt keys.log

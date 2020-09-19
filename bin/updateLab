@@ -14,4 +14,3 @@ sudo npm install -g helmet
 sudo apt autoremove -y
 cd ~/cs448-2020-fall/exercises/https
 ./startDemo
-
