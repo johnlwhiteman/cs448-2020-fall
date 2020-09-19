@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rm -f keys.log traffic.pcap invest_20.dll 
+rm -f keys.log traffic.pcap invest_20.dll ./invest_20.dll
