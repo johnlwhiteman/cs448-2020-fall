@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+WORDLIST=/usr/share/john/password.lst
+sudo john --wordlist=$WORDLIST ./passwords_to_crack 
+sudo john --show ./passwords_to_crack

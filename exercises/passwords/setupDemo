@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+./cleanupDemo
+wget https://www.tunnelsup.com/images/cmiyc_2012_password_hash_files.tar.bz2
+bzip2 -d *.bz2
+tar -xvf *.tar
+rm -f *.tar
+mv ./cmiyc_* ./corpus
+umask 077
+sudo useradd -m student
+users
+echo "student:12345" | sudo chpasswd
+cat /etc/passwd
+sudo cat /etc/shadow
+sudo unshadow /etc/passwd /etc/shadow > ./passwords_to_crack
+cat ./passwords_to_crack

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+rm -rf *.bz2 *.tar ./corpus ./cmiyc_* ~/.john ./passwords_to_crack
+sudo userdel -r student 2>> /dev/null
