@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if [ -f "./original.wav" ]; then
+    play ./original.wav
+fi
+play ./sound.wav

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+rm -f ./image.jpg.out ./sound.wav.out
+stegcracker image.jpg ./wordlist.txt 
+stegcracker sound.wav ./wordlist.txt 

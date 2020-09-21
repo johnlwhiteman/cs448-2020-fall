@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+sudo apt-get update
+sudo apt-get install steghide -y
+sudo pip install stegcracker
+sudo apt-get install sox libsox-fmt-all -y
+sudo apt-get install alsa-utils -y
+systemctl --user enable pulseaudio && systemctl --user start pulseaudio
+sudo apt-get install kmix -y
+if [ ! -f "./wordlist.txt" ]; then
+    gunzip -c /usr/share/wordlists/rockyou.txt.gz  > wordlist.txt
+fi
+if [ ! -f "./original.jpg" ]; then
+    cp ./image.jpg ./original.jpg 
+fi
+if [ ! -f "./original.wav" ]; then
+    cp ./sound.wav ./original.wav
+fi
+echo "You might need to reboot if running the first time and you want sound to work."

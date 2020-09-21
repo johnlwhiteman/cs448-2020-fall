@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cp ../steganography/image.jpg .
+exiftool ./image.jpg 

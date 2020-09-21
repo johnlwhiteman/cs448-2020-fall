@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+./teardown
+if [ ! -f "./wordlist.txt" ]; then
+    gunzip -c /usr/share/wordlists/rockyou.txt.gz  > wordlist.txt
+fi
+if [ ! -f "./original.jpg" ]; then
+    cp ./image.jpg ./original.jpg 
+fi
+if [ ! -f "./original.wav" ]; then
+    cp ./sound.wav ./original.wav
+fi

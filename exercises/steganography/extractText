@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+if [ "$#" -ne 1 ]; then
+    echo 'Usage: ./extractText <password>'
+    exit 1
+fi
+PW=$1
+rm -f from-*.txt
+steghide extract -p $PW -sf image.jpg -xf from-image.txt 
+steghide extract -p $PW -sf sound.wav -xf from-sound.txt 
+sha256sum secret.txt from-image.txt from-sound.txt
+echo '[SECRET]'
+cat secret.txt
+echo '[IMAGE]'
+cat from-image.txt
+echo '[SOUND]'
+cat from-sound.txt

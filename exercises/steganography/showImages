@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if [ -f "./original.jpg" ]; then
+    display ./original.jpg &
+fi
+display ./image.jpg &

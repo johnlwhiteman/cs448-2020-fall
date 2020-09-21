@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+if [ "$#" -ne 1 ]; then
+    echo 'Usage: ./embedText <password>'
+    exit 1
+fi
+PW=$1
+if [ ! -f "./original.jpg" ]; then
+    cp ./image.jpg ./original.jpg 
+fi
+if [ ! -f "./original.wav" ]; then
+    cp ./sound.wav ./original.wav
+fi
+cp ./original.jpg ./image.jpg
+cp ./original.wav ./sound.wav
+steghide embed -p $PW -cf image.jpg -ef secret.txt 
+steghide embed -p $PW -cf sound.wav -ef secret.txt 
+sha256sum ./original.jpg ./image.jpg
+sha256sum ./original.wav ./sound.wav

@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
+sudo apt-get update
 sudo apt-get remove  libreoffice* openoffice*
 sudo apt-get install libreoffice -y
+sudo apt-get install steghide -y
+sudo pip install stegcracker
+sudo apt-get install sox libsox-fmt-all -y
+sudo apt-get install alsa-utils -y
+systemctl --user enable pulseaudio && systemctl --user start pulseaudio
+sudo apt-get install kmix -y
+sudo apt-get install libimage-exiftool-perl

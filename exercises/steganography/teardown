@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [ -f "./original.jpg" ]; then
+    cp ./original.jpg ./image.jpg
+fi
+if [ -f "./original.wav" ]; then
+    cp ./original.wav ./sound.wav
+fi
+rm -f ./wordlist.txt ./original.jpg ./original.wav ./from-*.txt
+rm -f ./image.jpg.out ./sound.wav.out
