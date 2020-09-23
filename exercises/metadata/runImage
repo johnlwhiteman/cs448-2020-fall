@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+exiftool ./mcafee.jpg
+cat ./coordinates
+firefox google.com &
+sleep 5 
+display mcafee.jpg  &

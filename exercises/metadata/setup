@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-sudo apt-get install libimage-exiftool-perl
+sudo apt-get install libimage-exiftool-perl -y
+sudo apt-get install metagoofil -y

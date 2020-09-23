@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#metagoofil.py -h yes -o applefiles -f results.html
+D=hillsboro
+U=https://www.hillsborok12.com
+R=$D/report.txt
+N=7
+rm -fr $D 
+metagoofil -d $U -f -t doc,docx,pdf,pptx,xlsx -l $N -n $N -o $D -e 20 -w
+exiftool -r ./$D/*.doc | tee -a $R
+exiftool -r ./$D/*.docx | tee -a $R
+exiftool -r ./$D/*.pdf | tee -a $R
+exiftool -r ./$D/*.pptx | tee -a $R
+exiftool -r ./$D/*.xlsx | tee -a $R
+cp *.txt ./$D/
