@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo docker system prune -a
+sudo docker images purge
+sudo docker network prune

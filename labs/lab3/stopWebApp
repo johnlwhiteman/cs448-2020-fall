@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd ./webapp
+sudo docker-compose down

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+./startJuiceShop
+./startWebApp
+./startZAP

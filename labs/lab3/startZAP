@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo docker pull owasp/zap2docker-stable
+
+sudo docker run -u zap -p 8080:8080 -p 8090:8090 -i owasp/zap2docker-stable zap-webswing.sh &
+
+echo "Please wait while ZAP is starting up"
+
+sleep 15 
+
+firefox http://localhost:8080/zap &

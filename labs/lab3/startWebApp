@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+cd ./webapp
+URL=172.18.0.1  # MySQL server is last that gets configured
+sudo docker-compose up &
+echo "Be patient ... this may take several minutes"
+sleep 90 
+x=0
+while [ $x -le 60 ]
+do
+    if curl -s --head  --request GET $URL | grep "200 OK" > /dev/null; then 
+        firefox $URL &
+        exit 0 
+    else
+        echo "Waiting for web app @ $URL to start" 
+        sleep 5 
+        x=$(( $x + 1 ))
+    fi
+done
+echo "[ERROR] Something is amiss ... took too long for web site to start"
+exit 1

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cat sri.js | openssl dgst -sha256 -binary | openssl enc -base64 -A | (echo -n 'sha256-' && cat)
+echo

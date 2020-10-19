@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+./stopJuiceShop
+./stopZAP
+./stopWebApp

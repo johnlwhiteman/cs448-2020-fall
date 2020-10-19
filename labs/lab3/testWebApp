@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+cd ./webapp
+sudo docker-compose ps 
+echo $(sudo docker network inspect webapp_lab4 | grep Subnet | grep -o -E '[0-9\.]+')
+curl 172.18.0.1
+curl 172.18.0.1/index.php
+curl 172.18.0.1/connect.php

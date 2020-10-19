@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+./stopZAP
+IMAGES=$(sudo docker images | grep 'zap2docker-stable')
+if [ ! -z "$IMAGES" ]; then
+    sudo docker rmi $(sudo docker images -q )owasp/zap2docker-stable
+fi
