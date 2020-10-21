@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+docker stop sonarqube
+docker container rm sonarqube
+docker system prune -f 
