@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+firefox ./report/dependency-check-report.html &

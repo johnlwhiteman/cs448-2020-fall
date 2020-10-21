@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+./removeDocker
+sudo rm -fr ./bad-human-code ./data ./report

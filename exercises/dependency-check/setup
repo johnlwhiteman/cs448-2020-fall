@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+DC_VERSION=latest
+
+./cleanup
+git clone https://github.com/johnlwhiteman/bad-human-code.git
+cd ./bad-human-code
+rm -fr .git
+cd ../
+git clone https://github.com/SonarSource/sonar-scanning-examples.git
+cd sonar-scanning-examples/sonarqube-scanner/src
+cp -R * ../../../bad-human-code/
+cd ../../../
+rm -fr ./sonar-scanning-examples
+
+# Make sure we are using the latest version
+docker pull owasp/dependency-check:$DC_VERSION

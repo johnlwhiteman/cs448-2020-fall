@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 ./stopSonarQube
-./removeSonarQube
+./removeDocker
 rm -fr bad-human-code ./sonar-scanner sonar-scanner-*.zip ./sonar-scanning-examples .scannerwork

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+docker image rm owasp/dependency-check 
+docker system prune -f
