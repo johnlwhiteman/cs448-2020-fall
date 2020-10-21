@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+make stack1
+export i=1
+while true; do
+    token=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $i | head -n 1)
+    echo ""
+    echo "Execute:       ./stack1 '$token'"
+    echo "Length:        $i"
+    ./stack1 "$token"
+    if [ ! $? -eq 0 ]; then
+        exit
+    fi
+    i=$((i+1))
+    sleep 0.25 
+done
