@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+make memleak && valgrind --leak-check=yes ./memleak
