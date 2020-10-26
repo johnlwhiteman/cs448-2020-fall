@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+CONTAINERS=$(sudo docker container ls | grep juice-shop | awk '{ print $1 }')
+if [ ! -z "$CONTAINERS" ]; then
+    sudo docker container kill $CONTAINERS        
+fi
+sudo docker container prune --force

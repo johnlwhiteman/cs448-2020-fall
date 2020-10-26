@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+./stopJuiceShop
+IMAGES=$(sudo docker images | grep 'juice-shop')
+if [ ! -z "$IMAGES" ]; then
+    sudo docker rmi $(sudo docker images -q bkimminich/juice-shop)
+fi

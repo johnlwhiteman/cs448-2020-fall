@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+unset _JAVA_OPTIONS
+rm -f *.ser
+make
+#java Payroll 
+#java Database 'alice.ser'
+#java Database 'bob.ser'
+#java Database 'string.ser'
+#java Database 'dos.ser'
+#hexdump -C ./alice.msg
+#sudo apt-get install ghex -y

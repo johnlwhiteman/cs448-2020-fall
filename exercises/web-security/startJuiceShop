@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo docker pull bkimminich/juice-shop
+
+sudo docker run --rm -p 3000:3000 bkimminich/juice-shop &
+
+echo "Please wait while juice shop is starting up"
+
+sleep 15 
+
+firefox http://localhost:3000 &

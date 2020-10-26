@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+./stopDVWA
+IMAGES=$(sudo docker images | grep 'web-dvwa')
+if [ ! -z "$IMAGES" ]; then
+    sudo docker rmi $(sudo docker images -q vulnerables/web-dvwa)
+fi
