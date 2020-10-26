@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo apt-get purge openjdk-14-jdk-headless -y
+sudo apt-get update --fix-missing
+sudo apt-get install openjdk-14-jdk -y
