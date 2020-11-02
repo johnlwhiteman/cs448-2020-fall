@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo ls
+rm -f /tmp/td.deb
+sudo dpkg --purge threatdragon 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+sudo ls
+rm -f /tmp/td.deb
+cd /tmp
+wget https://github.com/mike-goodwin/owasp-threat-dragon-desktop/releases/download/v1.2/threatdragon_1.2.0_amd64.deb -O td.deb
+sudo dpkg -i td.deb
+rm -f td.deb
