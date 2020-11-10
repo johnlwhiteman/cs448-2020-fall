@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+IP=172.17.0.2
+nmap ${IP}/24

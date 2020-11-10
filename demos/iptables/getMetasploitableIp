@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+docker inspect -f "{{ .NetworkSettings.IPAddress }}" "tleemcjr/metasploitable2"
