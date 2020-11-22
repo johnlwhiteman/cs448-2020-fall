@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+function backupFileAsRoot {
+    if [ ! -f "$1" ]; then
+        return
+    fi
+    if [ ! -f "$1.ORIGINAL" ]; then
+        sudo cp $1 $1.ORIGINAL
+    fi
+}
+./cleanup
+sudo apt-get install foremost memdump scalpel unoconv volatility -y
+backupFileAsRoot $tmpy
+sudo cp $(pwd)/scalpel.conf /etc/scalpel/
+unzip ./images.zip
+wget https://github.com/markofu/pcaps/raw/master/HoneyNet/0310/hn_forensics.tgz
+tar -xvf ./hn_forensics.tgz
+mv Bob.vmem ./images/
+rm -f ./hn_forensics.tgz

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rm -fr ./images ./hn_forensics.tgz ./metadata-scrubbed.pdf ./Bob.vmem

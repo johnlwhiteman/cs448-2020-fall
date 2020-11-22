@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 sudo ls
+sudo apt-get install libreadline-dev -y
 rm -f /tmp/td.deb
 cd /tmp
 wget https://github.com/mike-goodwin/owasp-threat-dragon-desktop/releases/download/v1.2/threatdragon_1.2.0_amd64.deb -O td.deb
