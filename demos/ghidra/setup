@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+rm -fr ./ghidra* ./startGhidra
+wget https://ghidra-sre.org/ghidra_9.2_PUBLIC_20201113.zip
+unzip ghidra*.zip
+rm -f *.zip
+mv ./ghidra* ./ghidra
+ln -s ./ghidra/ghidraRun startGhidra

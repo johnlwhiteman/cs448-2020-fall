@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+rm -f *.zip rev50* sample
+wget https://crackmes.one/static/crackme/5b8a37a433c5d45fc286ad83.zip
+unzip -P 'crackmes.one' 5b8a37a433c5d45fc286ad83.zip
+unzip rev50.zip
+rm -f *.zip 
+mv rev50_linux64-bit sample
+
